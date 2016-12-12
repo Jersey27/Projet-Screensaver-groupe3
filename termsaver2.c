@@ -57,8 +57,12 @@ int main(int argc, char *argv[])
 	int c = 0;
 	char *a = malloc(strlen(temps) * sizeof(char) + 1);
 	while (c != strlen(temps))
- 	if (c + 12 == 12 || c + 12 == 13 || c + 12 == 15 || c + 12 == 16  || c + 12 == 18 || c + 12 == 19)
-  	str[c] = temps[c + 12];
+	{
+ 		if (c + 12 == 12 || c + 12 == 13 || c + 12 == 15 || c + 12 == 16  || c + 12 == 18 || c + 12 == 19)
+		{
+			str[c] = temps[c + 12];
+		}
+	}
 	int i;
 	int j;
 	int k;
