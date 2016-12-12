@@ -54,18 +54,12 @@ int main(int argc, char *argv[])
 	chaine = malloc(TAILLE_MAX * sizeof(char));
 	char *chaine2;
 	chaine2 = malloc(TAILLE_MAX * sizeof(char));
-	char *a;
-	a = malloc(1 * sizeof(char));
-	char *b;
-	b = malloc(1 * sizeof(char));
-	char *c;
-	c = malloc(1 * sizeof(char));
-	char *d;
-	d = malloc(1 * sizeof(char));
-	char *e;
-	e = malloc(1 * sizeof(char));
-	char *f;
-	f = malloc(1 * sizeof(char));
+	char a;
+	char b;
+	char c;
+	char d;
+	char e;
+	char f;
 	int i;
 	int j;
 	int k;
@@ -83,7 +77,7 @@ int main(int argc, char *argv[])
 		f[strlen(f)] = temps[19];
 		for(i=0;i!=8;i++) //Boucle d'affichage
 		{
-			strcat(a,".pbm");
+			.pbm++[0] = a;
 			fichier = fopen(a,"r");
 			if(i==0)
 			{
@@ -94,7 +88,7 @@ int main(int argc, char *argv[])
 			}
 			fgets(chaine, TAILLE_MAX, fichier);
 			fclose(fichier);
-			strcat(b,".pbm");
+			.pbm++[0] = b;
 			fichier = fopen(b,"r");
 			if(i==0)
 			{
@@ -106,8 +100,8 @@ int main(int argc, char *argv[])
 			fgets(chaine2, TAILLE_MAX, fichier);
 			chaine = my_strcat(chaine, chaine2);
 			fclose(fichier);
-			strcat(c,".pbm");
-			fichier = fopen(c,"r");
+			.pbm++[0] = c;
+			fichhier = fopen(c,"r");
 			if(i==0)
 			{
 				for(j=0;j!=3;j++)
@@ -118,7 +112,7 @@ int main(int argc, char *argv[])
 			fgets(chaine2, TAILLE_MAX, fichier);
 			chaine = my_strcat(chaine, chaine2);
 			fclose(fichier);
-			strcat(d,".pbm");
+			.pbm++[0] = d
 			fichier = fopen(d,"r");
 			if(i==0)
 			{
@@ -130,7 +124,7 @@ int main(int argc, char *argv[])
 			fgets(chaine2, TAILLE_MAX, fichier);
 			chaine = my_strcat(chaine, chaine2);
 			fclose(fichier);
-			strcat(e,".pbm");
+			.pbm++[0] = e
 			fichier = fopen(e,"r");
 			if(i==0)
 			{
@@ -142,7 +136,7 @@ int main(int argc, char *argv[])
 			fgets(chaine2, TAILLE_MAX, fichier);
 			chaine = my_strcat(chaine, chaine2);
 			fclose(fichier);
-			strcat(f,".pbm");
+			.pbm++[0] = f
 			fichier = fopen(f,"r");
 			if(i==0)
 			{
