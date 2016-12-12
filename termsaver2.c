@@ -46,6 +46,21 @@ char *my_strcat(char *dest, char *src) //Fonction remplaçant strcat pour ce pro
 	return (result);
 }
 
+void afficherpbm(a[b])
+{
+			.pbm++[0] = b;
+			fichier = fopen(b,"r");
+			if(i==0)
+			{
+				for(j=0;j!=3;j++)
+				{
+					fgets(chaine,TAILLE_MAX, fichier);
+				}
+			}
+			fgets(chaine, TAILLE_MAX, fichier);
+			fclose(fichier);
+}
+
 int main(int argc, char *argv[])
 {
 	char *temps;	//Initiatlisation des chaînes de caractères et des variables
