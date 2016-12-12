@@ -95,12 +95,11 @@ int main(int argc, char *argv[])
 		a[5] = temps[19];
 		for(i=0;i!=8;i++) //Boucle d'affichage
 		{
-			afficherpbm(a);
-			afficherpbm(b);
-			afficherpbm(c);
-			afficherpbm(d);
-			afficherpbm(e);
-			afficherpbm(f);
+			while (str[c])
+			{
+ 				afficherpbm(str[c]);
+ 				c++;
+			}
 //			.pbm++[0] = a;
 //			fichier = fopen(a,"r");
 //			if(i==0)
