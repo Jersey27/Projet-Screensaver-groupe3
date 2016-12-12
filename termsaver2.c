@@ -80,13 +80,14 @@ int main(int argc, char *argv[])
 	char *str = malloc(strlen(temps) * sizeof(char) + 1);
 	time_t t = time(NULL); //Récupération du temps courent
 	strcpy(temps,ctime(&t)); //Transfert du temps courant dans le char "temps"
-	while (g != strlen(temps))
+	while (c != strlen(temps))
 	{
- 		if (g + 12 == 12 || g + 12 == 13 || g + 12 == 15 || g + 12 == 16  || g + 12 == 18 || g + 12 == 19)
+ 		if (c + 12 == 12 || c + 12 == 13 || c + 12 == 15 || c + 12 == 16  || c + 12 == 18 || c + 12 == 19)
 		{
-			str[g] = temps[g + 12];
+			str[c] = temps[c + 12];
 		}
 	}
+	str[c] = '\0';
 	while(t!='0') //Boucle infinie
 	{
 		for(i=0;i!=8;i++) //Boucle d'affichage
@@ -96,7 +97,6 @@ int main(int argc, char *argv[])
 			{
 				afficherpbm(str[c]);
 				c++;
-				str[c] = '\0';
 			}
 //			.pbm++[0] = a;
 //			fichier = fopen(a,"r");
