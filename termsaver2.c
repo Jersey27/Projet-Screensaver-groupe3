@@ -55,12 +55,15 @@ char *my_strcat(char *dest, char *src) //Fonction remplaçant strcat pour ce pro
 
 void afficherpbm(char *str, int b)
 {
-	char *name = my_strcat(str[b], ".pbm")
+	char *str2 = malloc(2 * sizeof(char));
+	str2[0] = str[b];
+	str[1] = '\0';
+	char *name = my_strcat(str2, ".pbm");
 	char *chaine = malloc(TAILLE_MAX * sizeof(char));
 	char *chaine2 = malloc(TAILLE_MAX * sizeof(char));
 	FILE* fichier = NULL; //Initialisation de la variable de fichier
 	fichier = fopen(name,"r");
-	if(i==0)
+	if(l==0)
 	{
 		for(j=0;j!=3;j++)
 		{
@@ -70,6 +73,7 @@ void afficherpbm(char *str, int b)
 	fgets(chaine, TAILLE_MAX, fichier);
 	chaine = my_strcat(chaine, chaine2);
 	fclose(fichier);
+	printf("%s\n", chaine);
 }
 
 int main(int argc, char *argv[])
@@ -90,7 +94,7 @@ int main(int argc, char *argv[])
 	str[c] = '\0';
 	while(t!='0') //Boucle infinie
 	{
-		for(i=0;i!=8;i++) //Boucle d'affichage
+		for(l=0;l!=8;l++) //Boucle d'affichage
 		{
 			c = 0;
 			while (str[c])
@@ -169,7 +173,6 @@ int main(int argc, char *argv[])
 //			fgets(chaine2, TAILLE_MAX, fichier);
 //			chaine = my_strcat(chaine, chaine2);
 //			fclose(fichier);
-			printf("%s", chaine);
 
 		}
 		for(k=0;k!=10;k++)
