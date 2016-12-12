@@ -4,7 +4,10 @@
 #include <string.h>
 
 void InscriptData( int);
+/* InscriptData
+permet d'inscrire des données dans historique.txt .
 
+*/
 int main(int argc, char *argv[])
 {
 		FILE *fichier;
@@ -17,7 +20,7 @@ int main(int argc, char *argv[])
 
 		if (argc>1 && strcmp(argv[1], "-stats")==0)
 		{
-			fichier = fopen("text.txt","r");
+			fichier = fopen("historique.txt","r");
 			if(fichier == NULL) return 1;
 			while(fgets(ligne,100,fichier) != NULL) printf("%s",ligne);
 			fclose(fichier);
@@ -25,7 +28,7 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			fichier = fopen("historique.txt","a");
+
 			switch(veille){
 			case 1:
 				printf("statique \n");
