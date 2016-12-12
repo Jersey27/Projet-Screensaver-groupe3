@@ -54,7 +54,7 @@ void afficherpbm(a[b])
 			{
 				for(j=0;j!=3;j++)
 				{
-					fgets(chaine,TAILLE_MAX, fichier);
+					fgets(chaine,TAILLE_MAX, fichier);b
 				}
 			}
 			fgets(chaine, TAILLE_MAX, fichier);
@@ -95,77 +95,83 @@ int main(int argc, char *argv[])
 		a[5] = temps[19];
 		for(i=0;i!=8;i++) //Boucle d'affichage
 		{
-			.pbm++[0] = a;
-			fichier = fopen(a,"r");
-			if(i==0)
-			{
-				for(j=0;j!=3;j++)
-				{
-					fgets(chaine,TAILLE_MAX, fichier);
-				}
-			}
-			fgets(chaine, TAILLE_MAX, fichier);
-			fclose(fichier);
-			.pbm++[0] = b;
-			fichier = fopen(b,"r");
-			if(i==0)
-			{
-				for(j=0;j!=3;j++)
-				{
-					fgets(chaine,TAILLE_MAX, fichier);
-				}
-			}
-			fgets(chaine2, TAILLE_MAX, fichier);
-			chaine = my_strcat(chaine, chaine2);
-			fclose(fichier);
-			.pbm++[0] = c;
-			fichhier = fopen(c,"r");
-			if(i==0)
-			{
-				for(j=0;j!=3;j++)
-				{
-					fgets(chaine,TAILLE_MAX, fichier);
-				}
-			}
-			fgets(chaine2, TAILLE_MAX, fichier);
-			chaine = my_strcat(chaine, chaine2);
-			fclose(fichier);
-			.pbm++[0] = d
-			fichier = fopen(d,"r");
-			if(i==0)
-			{
-				for(j=0;j!=3;j++)
-				{
-					fgets(chaine,TAILLE_MAX, fichier);
-				}
-			}
-			fgets(chaine2, TAILLE_MAX, fichier);
-			chaine = my_strcat(chaine, chaine2);
-			fclose(fichier);
-			.pbm++[0] = e
-			fichier = fopen(e,"r");
-			if(i==0)
-			{
-				for(j=0;j!=3;j++)
-				{
-					fgets(chaine,TAILLE_MAX, fichier);
-				}
-			}
-			fgets(chaine2, TAILLE_MAX, fichier);
-			chaine = my_strcat(chaine, chaine2);
-			fclose(fichier);
-			.pbm++[0] = f
-			fichier = fopen(f,"r");
-			if(i==0)
-			{
-				for(j=0;j!=3;j++)
-				{
-					fgets(chaine,TAILLE_MAX, fichier);
-				}
-			}
-			fgets(chaine2, TAILLE_MAX, fichier);
-			chaine = my_strcat(chaine, chaine2);
-			fclose(fichier);
+			afficherpbm(a);
+			afficherpbm(b);
+			afficherpbm(c);
+			afficherpbm(d);
+			afficherpbm(e);
+			afficherpbm(f);
+//			.pbm++[0] = a;
+//			fichier = fopen(a,"r");
+//			if(i==0)
+//			{
+//				for(j=0;j!=3;j++)
+//				{
+//					fgets(chaine,TAILLE_MAX, fichier);
+//				}
+//			}
+//			fgets(chaine, TAILLE_MAX, fichier);
+//			fclose(fichier);
+//			.pbm++[0] = b;
+//			fichier = fopen(b,"r");
+//			if(i==0)
+//			{
+//				for(j=0;j!=3;j++)
+//				{
+//					fgets(chaine,TAILLE_MAX, fichier);
+//				}
+//			}
+//			fgets(chaine2, TAILLE_MAX, fichier);
+//			chaine = my_strcat(chaine, chaine2);
+//			fclose(fichier);
+//			.pbm++[0] = c;
+//			fichhier = fopen(c,"r");
+//			if(i==0)
+//			{
+//				for(j=0;j!=3;j++)
+//				{
+//					fgets(chaine,TAILLE_MAX, fichier);
+//				}
+//			}
+//			fgets(chaine2, TAILLE_MAX, fichier);
+//			chaine = my_strcat(chaine, chaine2);
+//			fclose(fichier);
+//			.pbm++[0] = d
+//			fichier = fopen(d,"r");
+//			if(i==0)
+//			{
+//				for(j=0;j!=3;j++)
+//				{
+//					fgets(chaine,TAILLE_MAX, fichier);
+//				}
+//			}
+//			fgets(chaine2, TAILLE_MAX, fichier);
+//			chaine = my_strcat(chaine, chaine2);
+//			fclose(fichier);
+//			.pbm++[0] = e
+//			fichier = fopen(e,"r");
+//			if(i==0)
+//			{
+//				for(j=0;j!=3;j++)
+//				{
+//					fgets(chaine,TAILLE_MAX, fichier);
+//				}
+//			}
+//			fgets(chaine2, TAILLE_MAX, fichier);
+//			chaine = my_strcat(chaine, chaine2);
+//			fclose(fichier);
+//			.pbm++[0] = f
+//			fichier = fopen(f,"r");
+//			if(i==0)
+//			{
+//				for(j=0;j!=3;j++)
+//				{
+//					fgets(chaine,TAILLE_MAX, fichier);
+//				}
+//			}
+//			fgets(chaine2, TAILLE_MAX, fichier);
+//			chaine = my_strcat(chaine, chaine2);
+//			fclose(fichier);
 			printf("%s", chaine);
 
 		}
