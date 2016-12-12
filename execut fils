@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main()
+{
+	char *arguments[] = {"fichier2", NULL};
+	pid_t pid = getppid();
+	pid = fork(); //pid = 100
+if(pid == 0){
+	printf ("tentative d'image");
+	execv("./fichier2", arguments);
+}
+else{
+	printf(" ");
+	wait(NULL);
+}
+return 0;
+}
