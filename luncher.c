@@ -5,7 +5,7 @@
 
 void InscriptData( int);
 /* InscriptData
-permet d'inscrire des données dans historique.txt .
+permet d'inscrire des donnÃ©es dans historique.txt .
 
 */
 int main(int argc, char *argv[])
@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 		FILE *fichier;
 		char ligne[100];
 
+		char *arguments[] = {"repondant",NULL}; /* Modifier repondant par le nom du programme*/
+	
 		system("clear");
 		time_t t;
 		srand((unsigned) time(&t));
@@ -32,14 +34,23 @@ int main(int argc, char *argv[])
 			switch(veille){
 			case 1:
 				printf("statique \n");
+				if (execv("./repondant",arguments) ==-1){
+				perror("execv");
+					return EXIT_FAILURE;}
 				InscriptData( veille);
 				break;
 			case 2:
 				printf("dynamique\n");
+				if (execv("./repondant",arguments) ==-1){
+				perror("execv");
+					return EXIT_FAILURE;}
 				InscriptData( veille);
 				break;
 			case 3:
 				printf("interractif\n");
+				if (execv("./repondant",arguments)==-1){
+				perror("execv");
+					return EXIT_FAILURE;}
 				InscriptData( veille);
 				break;
 
