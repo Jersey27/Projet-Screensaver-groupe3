@@ -87,12 +87,12 @@ int main(int argc, char *argv[])
 	while(t!='0') //Boucle infinie
 	{
 		strcpy(temps,ctime(&t)); //Transfert du temps courant dans le char "temps"
-		a[strlen(a)] = temps[12]; //Récupération des données du char "temps"
-		b[strlen(b)] = temps[13];
-		c[strlen(c)] = temps[15];
-		d[strlen(d)] = temps[16];
-		e[strlen(e)] = temps[18];
-		f[strlen(f)] = temps[19];
+		a[0] = temps[12]; //Récupération des données du char "temps"
+		a[1] = temps[13];
+		a[2] = temps[15];
+		a[3] = temps[16];
+		a[4] = temps[18];
+		a[5] = temps[19];
 		for(i=0;i!=8;i++) //Boucle d'affichage
 		{
 			.pbm++[0] = a;
