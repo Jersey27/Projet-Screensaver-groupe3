@@ -53,28 +53,28 @@ char *my_strcat(char *dest, char *src) //Fonction remplaçant strcat pour ce pro
 	return (result);
 }
 
-void afficherpbm(char *str[b])
+void afficherpbm(char *str, int b)
 {
-			char *chaine = malloc(TAILLE_MAX * sizeof(char));
-			char *chaine2 = malloc(TAILLE_MAX * sizeof(char));
-			FILE* fichier = NULL; //Initialisation de la variable de fichier
-			.pbm++[0] = b;
-			fichier = fopen(b,"r");
-			if(i==0)
-			{
-				for(j=0;j!=3;j++)
-				{
-					fgets(chaine,TAILLE_MAX, fichier);b
-				}
-			}
-			fgets(chaine, TAILLE_MAX, fichier);
-			chaine = my_strcat(chaine, chaine2);
-			fclose(fichier);
+	char *name = my_strcat(str[b], ".pbm")
+	char *chaine = malloc(TAILLE_MAX * sizeof(char));
+	char *chaine2 = malloc(TAILLE_MAX * sizeof(char));
+	FILE* fichier = NULL; //Initialisation de la variable de fichier
+	fichier = fopen(name,"r");
+	if(i==0)
+	{
+		for(j=0;j!=3;j++)
+		{
+			fgets(chaine,TAILLE_MAX, fichier);
+		}
+	}
+	fgets(chaine, TAILLE_MAX, fichier);
+	chaine = my_strcat(chaine, chaine2);
+	fclose(fichier);
 }
 
 int main(int argc, char *argv[])
 {
-	int g = 0;
+	int c = 0;
 	char *temps =  malloc(30 * sizeof(char));
 	char *chaine = malloc(TAILLE_MAX * sizeof(char));
 	char *str = malloc(strlen(temps) * sizeof(char) + 1);
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
 			c = 0;
 			while (str[c])
 			{
-				afficherpbm(str[c]);
+				afficherpbm(str, c);
 				c++;
 			}
 //			.pbm++[0] = a;
