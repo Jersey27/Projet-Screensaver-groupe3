@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/ioctl.h>
+
+#define TAILLE_MAX 1000
+
+char chaine[TAILLE_MAX];
+
+int afficher ()
+{
+int a;
+int b;
+
+struct winsize win;
+int col, lig;
+
+ioctl(0,TIOCGWINSZ, &win);
+
+col = win.ws_col;
+lig = win.ws_row;
+
+a = col/2;
+b = lig/2;
+printf("%d", a);
+printf("%d", b);
+printf("%as", chaine);
+printf("%bs", chaine);
+
+return 0;
+}
+
+int main(int argc, char *argv[])
+{
+	int i;
+	int l;
+	FILE* fichier = NULL;
+	fichier = fopen("1.pbm", "r");
+	if (fichier != NULL)
+	{
+		for(i=0;i!=3;i++)
+		{
+			fgets(chaine, TAILLE_MAX, fichier);
+		}
+		while (fgets(chaine, TAILLE_MAX, fichier) != NULL)
+		{
+			l=strlen(chaine);
+			for(i=0;i!=l;i++)
+			{
+				if (chaine[i]=='1')
+				{
+					chaine[i]=' ';
+				}
+				if (chaine[i]=='0')
+				{
+					chaine[i]='#';
+				}
+			}
+			afficher();
+		}
+		fclose(fichier);
+	}
+	return 0;
+}
