@@ -54,12 +54,11 @@ int main(int argc, char *argv[])
 	chaine = malloc(TAILLE_MAX * sizeof(char));
 	char *chaine2;
 	chaine2 = malloc(TAILLE_MAX * sizeof(char));
-	char a;
-	char b;
-	char c;
-	char d;
-	char e;
-	char f;
+	int c = 0;
+	char *a = malloc(strlen(temps) * sizeof(char) + 1);
+	while (c != strlen(temps))
+ 	if (c + 12 == 12 || c + 12 == 13 || c + 12 == 15 || c + 12 == 16  || c + 12 == 18 || c + 12 == 19)
+  	str[c] = temps[c + 12];
 	int i;
 	int j;
 	int k;
