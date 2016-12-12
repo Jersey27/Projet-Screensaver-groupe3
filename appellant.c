@@ -4,7 +4,7 @@
 
 int main()
 {
-	char *arguments[] = {"teste3", NULL};
+	char *arguments[] = {"repondant", NULL};
 
 	if (execv("./repondant", arguments) == -1)
 	{
