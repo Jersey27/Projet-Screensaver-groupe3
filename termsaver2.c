@@ -73,7 +73,7 @@ void afficherpbm(char *str, int b)
 	fgets(chaine, TAILLE_MAX, fichier);
 	chaine = my_strcat(chaine, chaine2);
 	fclose(fichier);
-	printf("%s\n", chaine);
+	printf("%s\n",fichier);
 }
 
 int main(int argc, char *argv[])
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 		}
 	}
 	str[c] = '\0';
-	while(t!='0') //Boucle infinie
+	while(t!=0) //Boucle infinie
 	{
 		for(l=0;l!=8;l++) //Boucle d'affichage
 		{
