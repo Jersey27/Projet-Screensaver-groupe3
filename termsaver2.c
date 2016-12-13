@@ -56,8 +56,8 @@ void afficherpbm(char *str, int b)
 	str2[1] = '\0';
 	char *name = strdup("\0");
 	name = my_strcat(str2, ".pbm");
-	char *chaine = malloc(TAILLE_MAX * sizeof(char));
-	char *chaine2 = malloc(TAILLE_MAX * sizeof(char));
+	char *chaine = malloc(TAILLE_MAX * sizeof(char)+10);
+	char *chaine2 = malloc(TAILLE_MAX * sizeof(char)+10);
 	FILE* fichier = NULL; //Initialisation de la variable de fichier
 	fichier = fopen(name,"r");
 	if(l==0)
@@ -65,6 +65,8 @@ void afficherpbm(char *str, int b)
 		for(j=0;j!=3;j++)
 		{
 			fgets(chaine,TAILLE_MAX, fichier);
+			free(chaine);
+			chaine = malloc(TAILLE_MAX * sizeof(char)+10);
 		}
 	}
 	fgets(chaine, TAILLE_MAX, fichier);
