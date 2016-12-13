@@ -2,14 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
-void InscriptData( int);
+#include <unistd.h>
+#include "fonctions.h" 
 /* InscriptData
 permet d'inscrire des données dans historique.txt .
-
+ 
 */
 int main(int argc, char *argv[])
 {
+		int axeX, axeY;
 		FILE *fichier;
 		char ligne[100];
 
@@ -33,42 +34,30 @@ int main(int argc, char *argv[])
 
 			switch(veille){
 			case 1:
+			srand((unsigned) time(&t));
+			int alea=(rand() %5)+1;
 				printf("statique \n");
-				if (execv("./repondant",arguments) ==-1){
+				if (execv("./termsaver/termsaver1",arguments) ==-1){
 				perror("execv");
 					return EXIT_FAILURE;}
-				InscriptData( veille);
+				InscriptData( veille, alea, axeX, axeY);
 				break;
 			case 2:
 				printf("dynamique\n");
-				if (execv("./repondant",arguments) ==-1){
+				if (execv("./termsaver/termsaver2",arguments) ==-1){
 				perror("execv");
 					return EXIT_FAILURE;}
-				InscriptData( veille);
+				InscriptData( veille, alea, axeX, axeY);
 				break;
 			case 3:
 				printf("interractif\n");
-				if (execv("./repondant",arguments)==-1){
+				if (execv("./termsaver/termsaver3",arguments)==-1){
 				perror("execv");
 					return EXIT_FAILURE;}
-				InscriptData( veille);
+				InscriptData( veille, alea, axeX, axeY);
 				break;
 
 			}
 		}
 	return 0;
-}
-
-void InscriptData( veille)
-{
-    FILE *fichier;
-    fichier = fopen("historique.txt","a");
-
-    time_t timer;
-    struct tm instant;
-
-    time(&timer);
-    instant=*localtime(&timer);
-    fprintf(fichier,"%d/%d/%d ; %d:%d:%d;%d;\n", instant.tm_mday, instant.tm_mon+1, instant.tm_year+1900, instant.tm_hour, instant.tm_min, instant.tm_sec);
-    fclose(fichier);
 }
