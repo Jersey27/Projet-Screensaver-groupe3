@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 				}
 				if (chaine[i]=='0')
 				{
-					chaine[i]=("%c",k != 219);
+					chaine[i]=('█');
 				}
 			}
 			afficher();
