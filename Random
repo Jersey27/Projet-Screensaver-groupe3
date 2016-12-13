@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(int argc, char *argv[]){
+
+  time_t t;
+  srand((unsigned) time(&t));
+  int allea=(rand() %5)+1;
+  
+  switch(alea){
+  
+  case 1:
+    printf("Chat\n");
+    break;
+  
+  case 2:
+    printf("Loup\n");
+    break;
+  
+  case 3:
+    printf("Champignon\n");
+    break;
+  
+  case 4:
+    printf("Espace\n");
+    break;
+  
+  case 5:
+    printf("Feu\n");
+    break;
+  }
+return 0;
+}
