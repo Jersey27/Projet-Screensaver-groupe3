@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <sys/ioct1.h>
+#include <sys/ioctl.h>
 #define TAILLE_MAX 1000
 
 struct winsize win;
