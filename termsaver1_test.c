@@ -88,6 +88,7 @@ int main(int argc, char *argv[])
 		fclose(fichier);
 	}
 	//getch();
-	}
-	return 0;
+	
+}
+if (c=getchar()) return 0;
 }
