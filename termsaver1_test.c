@@ -1,6 +1,6 @@
 #include <unistd.h>
-#include <termios.h>
 #include <stdio.h>
+#include <termios.h>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/ioctl.h>
@@ -11,7 +11,7 @@ int col, lig;
 int i;
 char chaine[TAILLE_MAX];
 
-/*int getch(void)
+int getch(void)
 {
 	struct termios oldattr, newattr;
 	int ch;
@@ -22,7 +22,7 @@ char chaine[TAILLE_MAX];
 	ch = getchar();
 	tcsetattr( STDIN_FILENO, TCSANOW, &oldattr );
 	return ch;
-}*/
+}
 int afficher()
 {
 int a;
@@ -41,7 +41,6 @@ printf("%s",chaine);
 
 int main(int argc, char *argv[])
 {
-	while (i);
 	system("clear");
 	char c;
 	int i = 1;
@@ -59,8 +58,8 @@ int main(int argc, char *argv[])
 		}
 		ioctl(0,TIOCGWINSZ,&win);
 		lig = win.ws_row;
-		j = lig/2-j/2;
-		for(i=0;i!=j;i++)
+		k = lig/2-j/2;
+		for(i=0;i!=k;i++)
 		{
 			printf("\n");
 		}
@@ -85,10 +84,21 @@ int main(int argc, char *argv[])
 			}
 			afficher();
 		}
+		k = lig-k-j-1;
+		for(i=0;i!=k;i++)
+		{
+			printf("\n");
+		}
 		fclose(fichier);
 	}
+<<<<<<< HEAD
 	//getch();
 	
 }
 if (c=getchar()) return 0;
 }
+=======
+	getch();
+	return 0;
+}
+>>>>>>> origin/master

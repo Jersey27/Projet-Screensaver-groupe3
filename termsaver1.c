@@ -1,6 +1,6 @@
 #include <unistd.h>
-#include <termios.h>
 #include <stdio.h>
+#include <termios.h>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/ioctl.h>
@@ -58,8 +58,8 @@ int main(int argc, char *argv[])
 		}
 		ioctl(0,TIOCGWINSZ,&win);
 		lig = win.ws_row;
-		j = lig/2-j/2;
-		for(i=0;i!=j;i++)
+		k = lig/2-j/2;
+		for(i=0;i!=k;i++)
 		{
 			printf("\n");
 		}
@@ -83,6 +83,11 @@ int main(int argc, char *argv[])
 				}
 			}
 			afficher();
+		}
+		k = lig-k-j-1;
+		for(i=0;i!=k;i++)
+		{
+			printf("\n");
 		}
 		fclose(fichier);
 	}
