@@ -19,13 +19,13 @@ void InscriptData( veille, alea, axeX, axeY)
 	switch (veille) //rajoute les paramètres complémentaires en fonctions de l'écran de veille
 	{
 	case 1:
-	fprintf(fichier,"ex%d.pbm/n", alea);
+	fprintf(fichier,"ex%d.pbm\n", alea);
 	break;
 	case 2:
 	fprintf(fichier,"0x0\n"/*%s,getenv(EXIASAVER2_TAILLE)*/);
 	break;
 	case 3:
-	fprintf(fichier,"%dx%d", axeX, axeY);
+	fprintf(fichier,"%dx%d\n", axeX, axeY);
 	break;
 	}
 	fclose(fichier);
