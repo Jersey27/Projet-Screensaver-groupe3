@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int TRUE = 1;
+int FALSE = 0;
+
+char chainehisto[100][40];
+
+int transformation(int n)
+{
+	switch(n)
+	{
+		case 49:
+			n=1;
+			break;
+		case 50:
+			n=2;
+			break;
+		case 51:
+			n=3;
+			break;
+	}
+	return n;
+}
+
+void tri_bulle(int n)
+{
+	int j = 0;
+	char tmp[2][40];
+	int pastrie = 1;
+	int pt;
+	int a;
+	int b;
+	char temp;
+	while(pastrie)
+	{
+		pastrie = FALSE;
+		for(j=0;j<n;j++)
+		{
+			a=(int) chainehisto[j][20];
+			b=(int) chainehisto[j+1][20];
+			a=transformation(a);
+			b=transformation(b);
+			if(a>b)
+			{
+				strcpy(tmp[0], chainehisto[j+1]);
+				strcpy(chainehisto[j],tmp[0]);
+				pastrie = TRUE;
+			}
+		}
+	}
+n=n+1;
+for (j=0;j<n;j++){
+	printf("%s",chainehisto[j]);
+}
+}
+
+void InscriptData( veillle, alea, axeX, axeY)
+{
+	FILE *fichier;
+	fichier = fopen("historique.txt","a");
+	time_t timer;
+	struct tm instant;
+	time(&timer);
+	instant=*localtime(&timer);
+	fprintf(fichier, "%d/%d/%d %d:%d:%d;%d;",instant.tm_mday, instant.tm_mon+1, instant.tm_year+1900,
+	instant.tm_hour, instant.tm_min, instant.tm_sec, veille);
+	switch (veille)
+	{
+		case 1:
+		fprintf(fichier,"ex%d.pbm\n", alea);
+		break;
+		case 2:
+		fprintf(fichier,"0x0\n");
+		break;
+		case 3;
+		fprintf(fichier,"%dx%d", axeX, axeY);
+		break;
+	}
+	fclose(fichier);
+return;
+}
