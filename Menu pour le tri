@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+
+  int k = 0;
+  printf("Entrer le nombre en face du tri voulu\n Par type de Termsaver = 1\n Par année = 2\n Par mois = 3\n Par jours = 4\n Par heures = 5\n Par minutes = 6\n Par secondes=7\n");
+  scanf("%d",&k);
+  
+  if(k==1)
+  {
+    printf("L'historique est trié par rapport au type de Termsaver\n");
+  } 
+  
+  else if(k==2)
+  {
+    printf("L'historique est trié par rapport aux années\n);
+  }
+  
+  else if(k==3)
+  {
+    printf("L'historique est trié par rapport aux mois\n");
+  }
+  
+  else if(k==4)
+  {
+    printf("L'historique est trié par rapport aux jours\n");
+  }
+  
+  else if(k==5)
+  {
+    printf("L'historique est trié par rapport aux heures\n");
+  }
+  
+  else if(k==6)
+  {
+    printf("L'historique est trié par rapport aux minutes\n");
+  }
+  
+  else if(k==7)
+  {
+    printf("L'historique est trié par rapport aux secondes\n");
+  }
+  
+  else
+  {
+    printf("Vous n'avez pas entrée de valeure correcte\n");
+  }
+  
+  return 0;
+}
+  
+  
