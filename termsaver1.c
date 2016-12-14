@@ -1,3 +1,5 @@
+#include <unistd.h>
+#include <termios.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -9,6 +11,18 @@ int col, lig;
 int i;
 char chaine[TAILLE_MAX];
 
+int getch(void)
+{
+	struct termios oldattr, newattr;
+	int ch;
+	tcgetattr( STDIN_FILENO, &oldattr);
+	newattr = oldattr;
+	newattr.c_lflag &= ~( ICANON | ECHO);
+	tcsetattr( STDIN_FILENO, TCSANOW, &newattr );
+	ch = getchar();
+	tcsetattr( STDIN_FILENO, TCSANOW, &oldattr );
+	return ch;
+}
 int afficher()
 {
 int a;
@@ -28,6 +42,8 @@ printf("%s",chaine);
 int main(int argc, char *argv[])
 {
 	system("clear");
+	char c;
+	int i = 1;
 	int k;
 	int l;
 	int j = 0;
@@ -63,12 +79,13 @@ int main(int argc, char *argv[])
 				}
 				if (chaine[i]=='0')
 				{
-					chaine[i]=('█');
+					chaine[i]='#';
 				}
 			}
 			afficher();
 		}
 		fclose(fichier);
 	}
+	getch();
 	return 0;
 }
