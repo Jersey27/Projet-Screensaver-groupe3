@@ -141,8 +141,16 @@ void main()
 		};
 	    create_lab(tab,str[0],lig/2-4,col/2-17);
 	    create_lab(tab,str[1],lig/2-4,col/2-11);
+	    tab[lig/2-2][col/2-5]='#';
+	    tab[lig/2-1][col/2-5]='#';
+	    tab[lig/2+1][col/2-5]='#';
+	    tab[lig/2+2][col/2-5]='#';
 	    create_lab(tab,str[2],lig/2-4,col/2-3);
 	    create_lab(tab,str[3],lig/2-4,col/2+3);
+	    tab[lig/2-2][col/2+9]='#';
+	    tab[lig/2-1][col/2+9]='#';
+	    tab[lig/2+1][col/2+9]='#';
+	    tab[lig/2+2][col/2+9]='#';
 	    create_lab(tab,str[4],lig/2-4,col/2+11);
 	    create_lab(tab,str[5],lig/2-4,col/2+17);
 	    free(str);
