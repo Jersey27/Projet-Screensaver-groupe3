@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <termios.h>
+ 
+int     main(void)
+{
+  char buffer[100];
+  struct termios infos;
+  int   size;
+ 
+  if (tcgetattr(STDIN_FILENO, &infos) == -1) // on récupère les infos du terminal                                                                                                           
+    {
+      fprintf(stderr, "Erreur tcgetattr.\n");
+      return (EXIT_FAILURE);
+    }
+  infos.c_lflag &= ~ECHO; // on le passe en mode non-echo                                                                                                                                   
+  if (tcsetattr(STDIN_FILENO, TCSANOW, &infos) == -1) // on set les infos du terminal                                                                                                       
+    {
+      fprintf(stderr, "Erreur tcsetattr.\n");
+      return (EXIT_FAILURE);
+    }
+  if ((size = read(STDIN_FILENO, buffer, sizeof(char) * 100)) == -1) // on lis, les caractères entrés ne sont pas affichés                                                                  
+    {
+      fprintf(stderr, "Erreur durant la lecture.\n");
+      return (EXIT_FAILURE);
+    }
+  buffer[size - 1] = '\0';
+  printf("le buffer contient [%s]\n", buffer); // on affiche le resultat de la lecture                                                                                                      
+  return (EXIT_SUCCESS);
+}
