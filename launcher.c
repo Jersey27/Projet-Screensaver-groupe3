@@ -5,15 +5,13 @@
 #include <unistd.h>
 #include "fonctions.h" 
 /* InscriptData
-permet d'inscrire des données dans historique.txt .
- 
+permet d'inscrire des données dans historique.txt . 
 */
-int main(int argc, char *argv[])
+int main(int argc, char *argv[], char** emvp)
 {
 		int axeX, axeY;
 		FILE *fichier;
 		char ligne[100];
-
 		char *arguments[] = {"repondant",NULL}; /* Modifier repondant par le nom du programme*/
 	
 		system("clear");
@@ -36,27 +34,26 @@ int main(int argc, char *argv[])
 			case 1:
 			srand((unsigned) time(&t));
 			int alea=(rand() %5)+1;
-				printf("statique \n");
-				if (execv("./termsaver/termsaver1",arguments) ==-1){
+				InscriptData( veille, alea, axeX, axeY);
+				arguments[2] = "%c.pbm",alea;
+				if (execv("./termsaver1",arguments) ==-1){
 				perror("execv");
 					return EXIT_FAILURE;}
-				InscriptData( veille, alea, axeX, axeY);
 				break;
 			case 2:
 				printf("dynamique\n");
-				if (execv("./termsaver/termsaver2",arguments) ==-1){
+				InscriptData( veille, alea, axeX, axeY);
+				if (execv("./termsaver2",arguments) ==-1){
 				perror("execv");
 					return EXIT_FAILURE;}
-				InscriptData( veille, alea, axeX, axeY);
 				break;
 			case 3:
 				printf("interractif\n");
-				if (execv("./termsaver/termsaver3",arguments)==-1){
+				InscriptData( veille, alea, axeX, axeY);
+				if (execv("./termsaver3",arguments)==-1){
 				perror("execv");
 					return EXIT_FAILURE;}
-				InscriptData( veille, alea, axeX, axeY);
 				break;
-
 			}
 		}
 	return 0;
