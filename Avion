@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+#include <termios.h>
+#include <sys/ioctl.h>
+#define TAILLE_MAX 1000
+
+
+char chaine[TAILLE_MAX];
+
+
+int main(void)
+{
+
+	char buffer[100];
+	struct termios infos;
+	int size;
+
+	if (tcgetattr(STDIN_FILENO, &infos) == -1)
+	{
+		fprintf(stderr, "Erreur tcgetattr.\n");
+		return (EXIT_FAILURE);
+	}
+	infos.c_lflag &= ~ECHO;
+	if (tcsetattr(STDIN_FILENO, TCSANOW, &infos) == -1)
+	{
+		fprintf(stderr, "Erreur tcsetattr.\n");
+		return (EXIT_FAILURE);
+	}
+	if ((size=read(STDIN_FILENO, buffer, sizeof(char) *100)) == -1)
+	{
+		fprintf(stderr, "Erreur durant la lecture.\n");
+		return (EXIT_FAILURE);
+	}
+
+	buffer[size - 1] ='\0';
+	printf("le buffer contient [%s]\n", buffer);
+
+	if (strcmp(buffer,"h") ==0)
+	{
+		printf("l'avion monte\n", buffer);
+	}
+
+	else if (strcmp(buffer,"b") ==0)
+	{
+	    printf("l'avion descend\n");
+	}
+
+	else if (strcmp(buffer,"g")==0)
+    {
+        printf("l'avion tourne à gauche\n");
+    }
+
+	else if (strcmp(buffer,"d")==0)
+	{
+	    printf("l'avion tourne à droite\n");
+	}
+
+	else
+	{
+		printf ("shut down\n");
+	}
+
+return 0;
+}
