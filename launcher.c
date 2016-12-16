@@ -32,7 +32,7 @@ int main(int argc, char *argv[], char** emvp)
 
 			switch(veille){									//choix du fond de veille (aléatoire)
 			case 1:											//le cas du fond de veille statique
-			srand((unsigned) time(&t));						//la variable aléatoire alea permet de choisir la
+			srand((unsigned) time(&t));						//la variable aléatoire alea permet de choisir le PBM pour le statique
 			int alea=(rand() %5)+1;							
 				InscriptData( veille, alea, axeX, axeY);	//inscrit cet entrée dans l'historique
 				arguments[2] = "%c.pbm",alea;				//on affecte comme arguments le fichier aléatoire choisi
@@ -41,14 +41,14 @@ int main(int argc, char *argv[], char** emvp)
 					return EXIT_FAILURE;}
 				break;
 			case 2:											//le cas du fond de veille dynamique
-				printf("dynamique\n");						
+				//printf("dynamique\n");					ancien test permettant de vérifier le 				
 				InscriptData( veille, alea, axeX, axeY);	//inscrit cet entrée dans l'historique
 				if (execv("./termsaver2",arguments) ==-1){	//lancement
 				perror("execv");
 					return EXIT_FAILURE;}
 				break;
 			case 3:											//le cas du fond de veille interractif
-				printf("interractif\n");
+				//printf("interractif\n");					
 				InscriptData( veille, alea, axeX, axeY);
 				if (execv("./termsaver3",arguments)==-1){
 				perror("execv");

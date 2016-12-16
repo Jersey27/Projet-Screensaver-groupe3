@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 	int j = 0;
 	char test[TAILLE_MAX];
 	FILE* fichier = NULL;
-	fichier = fopen("2.pbm", "r");
+	fichier = fopen("1.pbm", "r");
 	if (fichier != NULL)
 	{
 		while (fgets(test, TAILLE_MAX, fichier) != NULL);
