@@ -103,36 +103,37 @@ void create_lab(char **tab, char *name, int x, int y)
       	}
  		i++;
 	}
-    for(i = 0; i != lig; i++)
+    for(i = 1; i != lig-1; i++)
     	printf("%s\n", tab[i]);
 }
 
 void main()
 {
 	int i;
+    int j;
 	int h;
     char frappe;
 	ioctl(0,TIOCGWINSZ,&win);
     col = win.ws_col;
     lig = win.ws_row;
     char* direction = "right";
-    char **tab = malloc(sizeof(char*) * lig +1);
+    char **tab = malloc(sizeof(char*) * lig + 2);
     for(i = 0; i != lig; i++)
     {
-        tab[i] = malloc (sizeof(char) * col + 1);
+        tab[i] = malloc (sizeof(char) * col + 2);
         for(h = 0; h != col; h++)
         {
             tab[i][h] = ' ';
         }
     }
     int x = 10;
-    int y = 10;
+    int y = 10;   
+    create_lab(tab,direction,x,y);
     int z;
     while(1)
     {
-        if (x<lig-6 && y<col-3 && x>0 && y>0)   
-            create_lab(tab,direction,x,y);
-        //if (x==lin-6 && direction = "bottom")
+        /*if (x<lig-6 && y<col-3 && x>0 && y>0)
+        if (x==lin-6 && direction = "bottom")*/
 
 
         frappe=getch();
@@ -148,29 +149,61 @@ void main()
         {
             y = y-1;
             direction = "left";
-            for(i=0;i!=7;i++)
-                tab[x+i][y+5] = ' ';
+            create_lab(tab,direction,x,y);
+            for(i=0;i!=lig;i++)
+                for(i=0;i!=col;i++)
+                    tab[i][j-1] = tab[i][j];
+            if (y=0)
+            {
+                y=col-1;
+                for(i=0;i!=lig;i++)
+                    tab[i][0] = ' ';
+            }
         }
         if (z=2)
         {
             x = x-1;
             direction = "top";
-            for(i=0;i!=4;i++)
-                tab[x+8][y+i] = ' ';
+            create_lab(tab,direction,x,y);
+            for(i=0;i!=lig;i++)
+                for(i=0;i!=col;i++)
+                    tab[i-1][j] = tab[i][j];
+            if (x=0)
+            {
+                x=lig-1;
+                for(i=0;i!=lig;i++)
+                    tab[0][i] = ' ';
+            }
         }
         if (z=3)
         {
             y = y+1;
             direction = "right";
-            for(i=0;i!=7;i++)
-                tab[x+i][y-1] = ' ';
+            create_lab(tab,direction,x,y);
+            for(i=0;i!=lig;i++)
+                for(i=0;i!=col;i++)
+                    tab[i][j+1] = tab[i][j];
+            if (y=col)
+            {
+                y=1;
+                for(i=0;i!=lig;i++)
+                    tab[i][col] = ' ';
+            }
         }
         if (z=4)
         {
             x = x+1;
             direction = "bottom";
-            for(i=0;i!=4;i++)
-                tab[x-1][y+i] = ' ';
+            create_lab(tab,direction,x,y);
+            for(i=0;i!=lig;i++)
+                for(i=0;i!=col;i++)
+                    tab[i+1][j] = tab[i][j];
+            if (x=lig)
+            {
+                x=1;
+                for(i=0;i!=lig;i++)
+                    tab[lig][i] = ' ';
+            }
         }
     }
 }
