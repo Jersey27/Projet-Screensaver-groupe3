@@ -11,7 +11,7 @@ int col, lig;
 int i;
 char chaine[TAILLE_MAX];
 
-int getch(void)
+int getch(void)//fonction récupérant un caractère tapé sans appuyer sur entrer
 {
 	struct termios oldattr, newattr;
 	int ch;
@@ -23,7 +23,7 @@ int getch(void)
 	tcsetattr( STDIN_FILENO, TCSANOW, &oldattr );
 	return ch;
 }
-int afficher()
+int afficher()//fonction affichant le pbm ligne par ligne
 {
 int a;
 int b;
@@ -41,22 +41,22 @@ printf("%s",chaine);
 
 int main(int argc, char *argv[])
 {
-	system("clear");
+	system("clear");//effacaement de la console
 	char c;
 	int i = 1;
 	int k;
 	int l;
 	int j = 0;
 	char test[TAILLE_MAX];
-	FILE* fichier = NULL;
-	fichier = fopen("1.pbm", "r");
+	FILE* fichier = NULL;//ouverture du fichier
+	fichier = fopen("tower.pbm", "r");
 	if (fichier != NULL)
 	{
-		while (fgets(test, TAILLE_MAX, fichier) != NULL);
+		while (fgets(test, TAILLE_MAX, fichier) != NULL);//récupération de la taille du pbm
 		{
 			j++;
 		}
-		ioctl(0,TIOCGWINSZ,&win);
+		ioctl(0,TIOCGWINSZ,&win);// récupération de la taille de la console
 		lig = win.ws_row;
 		k = lig/2-j/2;
 		for(i=0;i!=k;i++)
@@ -64,11 +64,11 @@ int main(int argc, char *argv[])
 			printf("\n");
 		}
 		fseek(fichier,0,SEEK_SET);
-		for(i=0;i!=3;i++)
+		for(i=0;i!=3;i++)//passement des 3 premières lignes du pbm
 		{
 			fgets(chaine, TAILLE_MAX, fichier);
 		}
-		while (fgets(chaine, TAILLE_MAX, fichier) != NULL)
+		while (fgets(chaine, TAILLE_MAX, fichier) != NULL)//remplacement des caractères
 		{
 			l=strlen(chaine);
 			for(i=0;i!=l;i++)
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 			afficher();
 		}
 		k = lig-k-j-1;
-		for(i=0;i!=k;i++)
+		for(i=0;i!=k;i++)//sauts de ligne
 		{
 			printf("\n");
 		}
