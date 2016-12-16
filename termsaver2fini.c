@@ -4,7 +4,7 @@
 #include <string.h>
 #include <sys/ioctl.h>
 #define TAILLE_MAX 1000
-struct winsize win;
+struct winsize win;//Initialisation de la structure de taille de la console
 int col, lig;
 int a;
 int b;
@@ -53,7 +53,7 @@ char *my_strcat(char *dest, char *src) //Fonction remplaçant strcat pour ce pro
 }
 
 
-void create_lab(char **tab, char name, int x, int y)
+void create_lab(char **tab, char name, int x, int y)//fonction créant un tableau avec le pbm choisi à l'endroit choisi
 {
     char *test = malloc(sizeof(char*)*TAILLE_MAX);
     char *chaine = malloc(sizeof(char*)*TAILLE_MAX);
@@ -61,16 +61,16 @@ void create_lab(char **tab, char name, int x, int y)
     int h;
     int colonnes;
     int lignes = 0;
-    ioctl(0,TIOCGWINSZ,&win);
+    ioctl(0,TIOCGWINSZ,&win);//récupération de la taille de la console
     col = win.ws_col;
     lig = win.ws_row;
     FILE* fichier = NULL;
-    char *n = malloc(100 * sizeof(char));
+    char *n = malloc(100 * sizeof(char));//récupération du nom du pbm et ouverture de ce pbm
 	n[0]=name;
 	n[1]='\0';
 	n = my_strcat(n, ".pbm\0");
     fichier = fopen(n, "r");
-    while (fgets(test, TAILLE_MAX, fichier) != NULL);
+    while (fgets(test, TAILLE_MAX, fichier) != NULL);//récupération de la taille du pbm
     {
         lignes++;
     }
@@ -80,14 +80,14 @@ void create_lab(char **tab, char name, int x, int y)
         fgets(chaine, TAILLE_MAX, fichier);
     }
     fgets(chaine, TAILLE_MAX, fichier);
-    fseek(fichier,8,SEEK_SET);
+    fseek(fichier,8,SEEK_SET);//placement dans le fichier à la 4ème ligne
     colonnes = strlen(chaine);
     lignes = lignes - 3;
     i = 0;
-    while (fgets(chaine, TAILLE_MAX, fichier) != NULL)
+    while (fgets(chaine, TAILLE_MAX, fichier) != NULL)//stockage du pbm dans le tab
 	{
   		h = 0;
-     	while (chaine[h])
+     	while (chaine[h])//changement de caractères
      	{
      		if (chaine[h] != '\n')
             {
@@ -101,7 +101,7 @@ void create_lab(char **tab, char name, int x, int y)
       	}
  		i++;
 	}
-    for(i = 0; i != lig; i++)
+    for(i = 0; i != lig; i++)//affichage du tableau
     	printf("%s\n", tab[i]);
 }
 
@@ -110,11 +110,11 @@ void main()
 	int r;
 	int i;
 	int h;
-	ioctl(0,TIOCGWINSZ,&win);
+	ioctl(0,TIOCGWINSZ,&win);//récupération de la taille de la console
     col = win.ws_col;
     lig = win.ws_row;
     char **tab = malloc(sizeof(char*) * lig +1);
-    for(i = 0; i != lig; i++)
+    for(i = 0; i != lig; i++)//remplissage du tableau de blanc
     {
         tab[i] = malloc (sizeof(char) * col + 1);
         for(h = 0; h != col; h++)
@@ -139,7 +139,7 @@ void main()
 			}
 			c++;
 		};
-	    create_lab(tab,str[0],lig/2-4,col/2-17);
+	    create_lab(tab,str[0],lig/2-4,col/2-17);//appel de la fonction pour mettre et afficher les pbm dans le tableau
 	    create_lab(tab,str[1],lig/2-4,col/2-11);
 	    tab[lig/2-2][col/2-5]='#';
 	    tab[lig/2-1][col/2-5]='#';
@@ -155,6 +155,6 @@ void main()
 	    create_lab(tab,str[5],lig/2-4,col/2+17);
 	    free(str);
 	    free(temps);
-	    sleep(1);
+	    sleep(1);//pause d'actualisation
 	}
 }
