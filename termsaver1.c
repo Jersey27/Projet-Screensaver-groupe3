@@ -41,7 +41,7 @@ printf("%s",chaine);
 
 int main(int argc, char *argv[])
 {
-	system("clear");//effacaement de la console
+	system("clear");//effacement de la console
 	char c;
 	int i = 1;
 	int k;
@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 			printf("\n");
 		}
 		fseek(fichier,0,SEEK_SET);
-		for(i=0;i!=3;i++)//passement des 3 premières lignes du pbm
+		for(i=0;i!=3;i++)//placement des 3 premières lignes du pbm
 		{
 			fgets(chaine, TAILLE_MAX, fichier);
 		}
